@@ -57,7 +57,7 @@ class VDSRTrainer(object):
             out_data = torch.FloatTensor(size[0], size[1], target_height, target_width)
             for i, img in enumerate(data):
                 transform = transforms.Compose([transforms.ToPILImage(),
-                                                transforms.Resize((target_width, target_height), interpolation=interpolation),
+                                                transforms.Resize((target_height, target_width), interpolation=interpolation),
                                                 transforms.ToTensor()])
 
                 out_data[i, :, :, :] = transform(img)
